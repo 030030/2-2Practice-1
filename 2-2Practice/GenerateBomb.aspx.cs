@@ -18,16 +18,56 @@ namespace _2_2Practice
             int[] bomb = new int[10] { 0,7,13,28, 44, 62, 74, 75, 87,90 };
             int x=0, y=0;
             int[,] bomb2 = new int[10, 10];
-            for (x = 0; x < bomb.Length; x++) {
-                bombxy(ref x, ref y, bomb[x]);
+            Response.Write("<table border=4>");
+            for (int i = 0; i < bomb.Length; i++) {
+                bombxy(ref x, ref y, bomb[i]);
                 bomb2[x, y] = -1;
+                if ((x - 1) >= 0)
+                {
+                    if ((y - 1) >= 0)
+                    {
+                        bomb2[x-1, y-1] += 1;
+                    }
+                    if ((y + 1) <= 10)
+                    {
+                        bomb2[x - 1, y + 1] += 1;
+                    }
+                    bomb2[x - 1, y] += 1;
+                }
+                else if ((x + 1) <= 10)
+                {
+                    if ((y - 1) >= 0)
+                    {
+                        bomb2[x + 1, y - 1] += 1;
+                    }
+                    if ((y + 1) <= 10)
+                    {
+                        bomb2[x + 1, y +1] += 1;
+                    }
+                    bomb2[x + 1, y] += 1;
+                }
+                if ((y - 1) >= 0)
+                {
+                    bomb2[x , y - 1] += 1;
+                }else if ((y + 1) <= 10)
+                {
+                    bomb2[x, y + 1] += 1;
+                }
+
+
+
 
             }
+
             for (x = 0; x < 10; x++) {
+                Response.Write("<tr>");
                 for (y = 0; y < 10; y++) {
-                    Response.Write("<br/>");
+                    Response.Write("<td>"+bomb2[x, y]);
                 }
+                Response.Write("</tr>");
+                Response.Write("<br/>");
             }
+            Response.Write("</table>");
         }
     }
 }
