@@ -53,12 +53,11 @@ namespace _2_2Practice
                 {
                     bomb2[x, y + 1] += 1;
                 }
-
-
-
-
             }
-
+            for (int i = 0; i < bomb.Length; i++) {
+                bombxy(ref x, ref y, bomb[i]);
+                bomb2[x, y] = -1;
+            }
             for (x = 0; x < 10; x++) {
                 Response.Write("<tr>");
                 for (y = 0; y < 10; y++) {
