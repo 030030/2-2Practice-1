@@ -28,19 +28,17 @@ namespace _2_2Practice
                     {
                         bomb2[x-1, y-1] += 1;
                     }
-                    if ((y + 1) <= 10)
+                    if ((y + 1) <= 9)
                     {
                         bomb2[x - 1, y + 1] += 1;
                     }
                     bomb2[x - 1, y] += 1;
-                }
-                else if ((x + 1) <= 10)
-                {
+                }if ((x + 1) <= 9){
                     if ((y - 1) >= 0)
                     {
                         bomb2[x + 1, y - 1] += 1;
                     }
-                    if ((y + 1) <= 10)
+                    if ((y + 1) <= 9)
                     {
                         bomb2[x + 1, y +1] += 1;
                     }
@@ -49,7 +47,7 @@ namespace _2_2Practice
                 if ((y - 1) >= 0)
                 {
                     bomb2[x , y - 1] += 1;
-                }else if ((y + 1) <= 10)
+                }if ((y + 1) <= 9)
                 {
                     bomb2[x, y + 1] += 1;
                 }
